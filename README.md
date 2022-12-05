@@ -28,20 +28,25 @@ Github restricts sizes for uploaded files so no training data or trained models 
 1. Run GoodNews.ipynb. It will train an image captioner on the 8000 news image-caption pairs generated before.
 2. Resulting train-test split image ids are stored in newsmodels/news_test_id.txt and newsmodels/news_train_id.txt respectively.
 3. Resulting image features extracted from VGG16 are stored in newsmodels/newsfeaturesextracted.pkl.
-4. Resulting tokenizer is stored in newsmodels/tokenizer.pkl.
+4. Resulting tokenizer is stored in newsmodels/tokenizer.json.
 5. Resulting models trained for 10 epochs and 20 epochs are stored in newsmodels/newstenepochs.h5 and newsmodels/newstwentyepochs.h5 respectively.
 ### Train models with Flick8k images then fine-tune on news captions dataset
 #### Use tokenizer that distinguishes between named entities and normal words (e.g. named entity placeholder \<person\> and word person will be treated as different tokens)
 1. Run finetuning.ipynb. It will train an image captioner on Flickr8k images first then fine-tune the trained model on news captions dataset.
 3. Resulting image features for Flickr8k images extracted from VGG16 are stored in finetuning/flickrfeaturesextracted.pkl.
-4. Resulting tokenizer is stored in finetuning/tokenizer.pkl
+4. Resulting tokenizer is stored in finetuning/tokenizer.json.
 5. Resulting base model trained on Flickr8k images for 10 epochs are stored in finetuning/finetuningbase.h5.
 6. Resulting models fine-tuned on news captions dataset for 5 epochs and 15 epochs are stored in finetuning/finetuningfive.h5 and finetuning/finetuningfifteen.h5 respectively.
 #### Use tokenizer that does not distinguish between named entities and normal words
 1. Run finetuning.ipynb. It will train an image captioner on Flickr8k images first then fine-tune the trained model on news captions dataset.
 3. Resulting image features for Flickr8k images extracted from VGG16 are stored in finetuning/flickrfeaturesextracted.pkl.
-4. Resulting tokenizer is stored in finetuning/tokenizer_mix.pkl
+4. Resulting tokenizer is stored in finetuning/tokenizer_mix.json.
 5. Resulting base model trained on Flickr8k images for 10 epochs are stored in finetuning/finetuningbase_mix.h5.
 6. Resulting models fine-tuned on news captions dataset for 5 epochs and 15 epochs are stored in finetuning/finetuningfive_mix.h5 and finetuning/finetuningfifteen_mix.h5 respectively.
 ## Demo
 1. Run news_caption_generation.ipynb. It will generate news-like captions for an input image url with the trained newstwentyepochs.h5 and finetuningfifteen_mix.h5 models.
+## References
+1. https://www.analyticsvidhya.com/blog/2021/12/step-by-step-guide-to-build-image-caption-generator-using-deep-learning/
+2. https://www.kaggle.com/code/basharatalisahito/caption-generator
+3. https://arxiv.org/pdf/2010.03743.pdf
+4. https://blender.cs.illinois.edu/paper/imagecaption.pdf
